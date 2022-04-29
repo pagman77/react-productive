@@ -44,7 +44,7 @@ function TodoApp({initialTodos}) {
       <div className="row">
 
         <div className="col-md-6">
-          {todos.length !== 0 ?
+          {todos?.length > 0 ?
             <EditableTodoList
               todos={todos}
               update={update}
@@ -53,7 +53,7 @@ function TodoApp({initialTodos}) {
         </div>
 
         <div className="col-md-6">
-          { todos.length !== 0 &&
+          { todos?.length > 0 &&
             <section className="mb-4">
             <h3>Top Todo</h3>
             <TopTodo todos={todos}/>
