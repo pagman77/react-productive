@@ -18,7 +18,7 @@ function EditableTodo({todo, update, remove}) {
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setEdit(!editing);
+    setEdit(editing => !editing);
   }
 
   /** Call remove fn passed to this. */
@@ -29,7 +29,7 @@ function EditableTodo({todo, update, remove}) {
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
     update({...formData});
-    toggleEdit();
+    setEdit(false);
    }
 
   return (
@@ -54,8 +54,7 @@ function EditableTodo({todo, update, remove}) {
                       Del
                     </button>
                   </div>
-                  <Todo id={todo.id} title={todo.title}
-                   description={todo.description} priority={todo.priority}/>
+                  <Todo todo={todo}/>
                 </div>
                 }
 
